@@ -40,3 +40,7 @@ nnoremap <leader>fo :call macos#open(expand('%:p:h'))<cr>
 ## New Feature
 
 Welcome to fire a feature request in the [issue list](https://github.com/chemzqm/vim-macos/issues)
+
+## License
+
+MIT
