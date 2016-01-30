@@ -116,12 +116,33 @@ function! macos#ItermOpen(dir)
       \ 'end tell')
 endfunction
 
+function! macos#ItermRun(cmd)
+  return s:osascript(
+      \ 'if application "iTerm2" is not running',
+      \   'error',
+      \ 'end if') && s:osascript(
+      \ 'tell application "iTerm2"',
+      \   'tell current window',
+      \     'tell current session',
+      \       'write text "clear"',
+      \       'write text "'.s:escape(a:cmd).'"',
+      \       'activate',
+      \     'end tell',
+      \   'end tell',
+      \ 'end tell')
+endfunction
+
 function! macos#keycodes(...)
   return s:osascript(
     \ 'tell application "System Events"',
     \ '  key code {' . join(map(copy(a:000), 's:code_map[v:val]'), ',') . '}',
     \ 'end tell',
     \)
+endfunction
+
+function! s:escape(cmd)
+  let str = substitute(a:cmd, "'", "''", 'g')
+  return escape(str, '"')
 endfunction
 
 function! s:system(cmd)

@@ -67,10 +67,13 @@ INTERFACE				*macos-interface*
 FUNCTIONS 				*macos-functions*
 
 macos#open({arg})			*macos-open*
-			Execute open command with {arg}
+			Execute open command with {arg}.
 
 macos#ItermOpen({dir})			*macos-itermopen*
-			Make Iterm2 open with directory in a new tab
+			Make Iterm2 open with directory in a new tab.
+
+macos#ItermRun({cmd})			*macos-itermopen*
+			Make Iterm2 run a command in current working session.
 
 amcos#keycodes({keys}...)		*macos-keycodes*
 			Send keys to the macosx system, useful to control
