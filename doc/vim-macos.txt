@@ -72,8 +72,9 @@ macos#open({arg})			*macos-open*
 macos#ItermOpen({dir})			*macos-itermopen*
 			Make Iterm2 open with directory in a new tab.
 
-macos#ItermRun({cmd})			*macos-itermopen*
-			Make Iterm2 run a command in current working session.
+macos#ItermRun({cmd}, {active})		*macos-itermopen*
+			Make Iterm2 run {cmd} in current working session.
+			Set {active} to 1 or 0 for iterm activated or not
 
 amcos#keycodes({keys}...)		*macos-keycodes*
 			Send keys to the macosx system, useful to control

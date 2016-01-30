@@ -116,7 +116,8 @@ function! macos#ItermOpen(dir)
       \ 'end tell')
 endfunction
 
-function! macos#ItermRun(cmd)
+function! macos#ItermRun(cmd, active)
+  let active = a:active ? 'activate' : ''
   return s:osascript(
       \ 'if application "iTerm2" is not running',
       \   'error',
@@ -126,7 +127,7 @@ function! macos#ItermRun(cmd)
       \     'tell current session',
       \       'write text "clear"',
       \       'write text "'.s:escape(a:cmd).'"',
-      \       'activate',
+      \       active,
       \     'end tell',
       \   'end tell',
       \ 'end tell')
